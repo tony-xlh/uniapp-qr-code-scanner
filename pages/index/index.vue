@@ -1,17 +1,20 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<view class="fullscreen">
+			<QRCodeScanner></QRCodeScanner>
 		</view>
 	</view>
 </template>
 
 <script>
+	import QRCodeScanner from "../../components/QRCodeScannerWeb.vue";
 	export default {
+		components: {
+			QRCodeScanner
+		},
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
 			}
 		},
 		onLoad() {
@@ -31,22 +34,11 @@
 		justify-content: center;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+	.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
