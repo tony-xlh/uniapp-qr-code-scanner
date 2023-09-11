@@ -1,17 +1,41 @@
 <template>
 	<view class="content">
-		<view class="fullscreen">
-			<QRCodeScanner></QRCodeScanner>
+    <button @click="startScan">Start Scanning</button>
+		<view class="fullscreen" v-if="scanning">
+			<QRCodeScanner @scanned="scanned"></QRCodeScanner>
 		</view>
+    <view v-for="(result,index) in barcodeResults">
+      <view>{{ (index+1) + ". " + result.barcodeFormatString + ": " + result.barcodeText }}</view>
+    </view>
 	</view>
 </template>
 
 <script>
 	import QRCodeScanner from "../../components/QRCodeScannerWeb.vue";
+  import { ref } from "vue";
 	export default {
 		components: {
 			QRCodeScanner
 		},
+    setup(){
+      const scanning = ref(false);
+      const barcodeResults = ref([]);
+      const startScan = () => {
+        scanning.value = true;
+      }
+      const scanned = (results) => {
+        if (results.length>0) {
+          barcodeResults.value = results;
+          scanning.value = false;
+        }
+      }
+      return {
+        startScan,
+        scanned,
+        barcodeResults,
+        scanning
+      }
+    },
 		data() {
 			return {
 				title: 'Hello',

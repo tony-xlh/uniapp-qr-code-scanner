@@ -66,7 +66,7 @@
   import { BarcodeScanner } from 'dynamsoft-javascript-barcode'
   export default {
     name:"QRCodeScanner",
-    setup(){
+    setup(props,context){
       const pScanner = ref(null);
       const elRefs = ref(null);
       onMounted(async () => {
@@ -82,6 +82,7 @@
             for (let result of results) {
               console.log(result.barcodeText);
             }
+            context.emit("scanned", results);
           };
           await scanner.open();
         } catch (ex) {
