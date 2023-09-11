@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tony-xlh/uniapp-qr-code-scanner/issues"
   },
-  "homepage": "https://github.com/tony-xlh/uniapp-qr-code-scanner#readme"
+  "homepage": "https://github.com/tony-xlh/uniapp-qr-code-scanner#readme",
+  "dependencies": {
+    "dynamsoft-javascript-barcode": "^9.6.21"
+  }
 }
