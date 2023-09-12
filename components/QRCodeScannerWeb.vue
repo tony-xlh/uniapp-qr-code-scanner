@@ -66,6 +66,7 @@
   import { BarcodeScanner } from 'dynamsoft-javascript-barcode'
   export default {
     name:"QRCodeScannerWeb",
+    props: ['license'],
     setup(props,context){
       const pScanner = ref(null);
       const elRefs = ref(null);
@@ -73,8 +74,8 @@
         try {
           console.log(elRefs);
           if (BarcodeScanner.isWasmLoaded() === false) {
-            BarcodeScanner.license = 'DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9';
-            BarcodeScanner.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode/dist/";
+            BarcodeScanner.license = props.license ?? "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ==";
+            BarcodeScanner.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.6.21/dist/";
           }
           const scanner = await (pScanner.value = BarcodeScanner.createInstance());
           await scanner.setUIElement(elRefs.value);
