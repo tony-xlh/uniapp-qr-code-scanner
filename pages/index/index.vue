@@ -6,7 +6,7 @@
       <QRCodeScannerWeb @scanned="scanned"></QRCodeScannerWeb>
       <!--  #endif -->
       <!--  #ifdef APP -->
-      <QRCodeScanner></QRCodeScanner>
+      <QRCodeScanner @scanned="scanned"></QRCodeScanner>
       <!--  #endif -->
 		</view>
     <view v-for="(result,index) in barcodeResults">
@@ -17,7 +17,7 @@
 
 <script>
   import QRCodeScannerWeb from "../../components/QRCodeScannerWeb.vue";
-  import QRCodeScanner from "../../components/QRCodeScanner.vue";
+  import QRCodeScanner from "../../components/QRCodeScannerWebView.vue";
   import { ref } from "vue";
 	export default {
 		components: {
