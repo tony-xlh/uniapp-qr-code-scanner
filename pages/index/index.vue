@@ -5,7 +5,7 @@
 			<!--  #ifdef H5 -->
       <QRCodeScannerWeb @scanned="scanned" license="DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ=="></QRCodeScannerWeb>
       <!--  #endif -->
-      <!--  #ifdef APP -->
+      <!--  #ifdef APP || MP -->
       <QRCodeScanner @scanned="scanned" license="DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ=="></QRCodeScanner>
       <!--  #endif -->
 		</view>

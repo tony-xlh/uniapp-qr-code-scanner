@@ -42,9 +42,13 @@
         }else{
           newURL = "https://tony-xlh.github.io/Vanilla-JS-Barcode-Reader-Demos/uniapp?startScan=true";
         }
-        console.log(newURL);
         url.value = newURL;
+        //#ifdef APP
         requestCameraPermission();
+        //#endif
+        //#ifdef MP
+        hasPermission.value = true;
+        //#endif
       })
       return {
         url,
