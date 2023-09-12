@@ -65,7 +65,7 @@
   import { onBeforeUnmount, onMounted, ref } from "vue";
   import { BarcodeScanner } from 'dynamsoft-javascript-barcode'
   export default {
-    name:"QRCodeScanner",
+    name:"QRCodeScannerWeb",
     setup(props,context){
       const pScanner = ref(null);
       const elRefs = ref(null);
