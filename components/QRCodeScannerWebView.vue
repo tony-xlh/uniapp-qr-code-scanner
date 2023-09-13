@@ -1,6 +1,6 @@
 <template>
   <view>
-    <web-view v-if="hasPermission" @message="handlePostMessage" :src="url"></web-view>
+    <web-view v-if="hasPermission" @message="handlePostMessage" cache="true" :src="url"></web-view>
   </view>
 </template>
 
