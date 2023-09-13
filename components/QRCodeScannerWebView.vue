@@ -13,19 +13,24 @@
       const url = ref("");
       const hasPermission = ref(false);
       const requestCameraPermission = () => {
-        plus.android.requestPermissions(['android.permission.CAMERA'], function(e){  
-          if(e.deniedAlways.length>0){
-            console.log(e.deniedAlways.toString());  
-          }  
-          if(e.deniedPresent.length>0){
-            console.log(e.deniedPresent.toString());  
-          }  
-          if(e.granted.length>0){
-            hasPermission.value = true;
-          }  
-        }, function(e){  
-           console.log('Request Permissions error:'+JSON.stringify(e));  
-        });  
+        let platform=uni.getSystemInfoSync().platform
+        if(platform === 'ios'){
+          hasPermission.value = true;
+        }else if(platform=='android'){
+          plus.android.requestPermissions(['android.permission.CAMERA'], function(e){
+            if(e.deniedAlways.length>0){
+              console.log(e.deniedAlways.toString());  
+            }  
+            if(e.deniedPresent.length>0){
+              console.log(e.deniedPresent.toString());  
+            }  
+            if(e.granted.length>0){
+              hasPermission.value = true;
+            }  
+          }, function(e){  
+             console.log('Request Permissions error:'+JSON.stringify(e));  
+          });  
+        }
       }
       const handlePostMessage = (e) => {
         console.log(e);
