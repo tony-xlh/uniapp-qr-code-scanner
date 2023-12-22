@@ -5,8 +5,11 @@
 			<!--  #ifdef H5 -->
       <QRCodeScannerWeb @scanned="scanned" license="DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ=="></QRCodeScannerWeb>
       <!--  #endif -->
-      <!--  #ifdef APP || MP -->
+      <!--  #ifdef APP -->
       <QRCodeScanner @scanned="scanned" license="DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ=="></QRCodeScanner>
+      <!--  #endif -->
+      <!--  #ifdef MP -->
+      <QRCodeScannerMP @scanned="scanned"></QRCodeScannerMP>
       <!--  #endif -->
 		</view>
     <view v-for="(result,index) in barcodeResults">
@@ -18,11 +21,13 @@
 <script>
   import QRCodeScannerWeb from "../../components/QRCodeScannerWeb.vue";
   import QRCodeScanner from "../../components/QRCodeScannerWebView.vue";
+  import QRCodeScannerMP from "../../components/QRCodeScannerMP.vue";
   import { ref } from "vue";
 	export default {
 		components: {
 			QRCodeScannerWeb,
-      QRCodeScanner
+      QRCodeScanner,
+      QRCodeScannerMP
 		},
     setup(){
       const scanning = ref(false);
